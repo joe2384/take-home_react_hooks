@@ -1,11 +1,11 @@
 import React from 'react';
-import ShippingContainer from './shippingContainer';
+import TableContainer from './tableContainer';
 import '../styles/App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <ShippingContainer/>
+      <TableContainer/>
     </div>
   );
 }

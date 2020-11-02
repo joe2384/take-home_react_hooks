@@ -2,11 +2,10 @@ import axios from 'axios';
 import settings from '../settings/settings.development.json';
 
 const instance = axios.create({
-  baseURL: settings.restEngine,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+    'Authorization': `Api-Key ${settings.api_key}`  }
 });
 
 export default function restCall(params) {
@@ -18,17 +17,20 @@ export default function restCall(params) {
     errorType,
     dispatch
   } = params;
-    if (startType) {
+  if (startType) {
     dispatch({ type: startType });
   }
-  axios({
-    method: method,
+  const axVars = {
     url: `${settings.restEngine}${url}`,
-  })
+    method
+  };
+  return instance(axVars)
   .then(resp => {
+    console.log("LOGGER",resp)
     dispatch({ type: successType, payload: resp.data })
   })
   .catch(error => {
+    console.log("LOGGER error",error)
     if(error.response){
       dispatch({ type: errorType, payload: {} })
     }

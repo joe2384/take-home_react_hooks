@@ -5,7 +5,7 @@ import { Dispatch } from 'redux';
 export const getData = () => {
   return async function(dispatch: Dispatch) {
     await restCall({
-      url: ``,
+      url: `/api/restaurants`,
       method: 'get',
       startType: actionTypes.DATA_PENDING,
       successType: actionTypes.DATA_REQUEST_FULFILLED,

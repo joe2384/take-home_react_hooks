@@ -39,7 +39,6 @@ class TableContainer extends React.Component<Props, TableContainerState>{
   }
 
   render(){
-    console.log("PROPS",this.props)
     const { data, message, error, loading } = this.props
     
     return (
