@@ -14,3 +14,18 @@ export const getData = () => {
     });
   }
 };
+
+export const filterByValue = (value: string) => ({
+  type: actionTypes.FILTER_BY_VALUE,
+  payload: value
+});
+
+export const filterByState = (value: string) => ({
+  type: actionTypes.FILTER_BY_STATE,
+  payload: value
+});
+
+export const filterByGenre = (value: string) => ({
+  type: actionTypes.FILTER_BY_GENRE,
+  payload: value
+});

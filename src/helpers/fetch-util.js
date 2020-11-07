@@ -26,11 +26,9 @@ export default function restCall(params) {
   };
   return instance(axVars)
   .then(resp => {
-    console.log("LOGGER",resp)
     dispatch({ type: successType, payload: resp.data })
   })
   .catch(error => {
-    console.log("LOGGER error",error)
     if(error.response){
       dispatch({ type: errorType, payload: {} })
     }
