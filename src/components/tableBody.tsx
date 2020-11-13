@@ -13,7 +13,6 @@ class TableBody extends React.Component<TableBodyProps>{
 
   render(){
   const { data } = this.props;
-    // console.log("LOGGER",data)
     return (
       <Fragment>
           {data.map(place => 

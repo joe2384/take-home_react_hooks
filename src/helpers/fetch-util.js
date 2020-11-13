@@ -12,14 +12,10 @@ export default function restCall(params) {
   const {
     url,
     method,
-    startType,
     successType,
     errorType,
     dispatch
   } = params;
-  if (startType) {
-    dispatch({ type: startType });
-  }
   const axVars = {
     url: `${settings.restEngine}${url}`,
     method
@@ -29,8 +25,6 @@ export default function restCall(params) {
     dispatch({ type: successType, payload: resp.data })
   })
   .catch(error => {
-    if(error.response){
-      dispatch({ type: errorType, payload: {} })
-    }
+    dispatch({ type: errorType, message: 'Error: No restaurants to return' })
   })
 }

@@ -11,7 +11,6 @@ interface ReduxState {
 interface IData {
     data: dataObject[],
     filteredData: dataObject[],
-    loading: boolean,
     message: string,
     error: boolean,
 }

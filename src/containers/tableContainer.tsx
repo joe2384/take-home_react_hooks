@@ -4,14 +4,16 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getData, filterByValue, filterByState, filterByGenre } from '../store/actions/action';
 import TableBody from '../components/tableBody';
 import DropDown from '../components/dropDown';
+import ReactPaginate from 'react-paginate';
 
 interface TableContainerState {
   value: string
 }
 
 const mapStateToProps = (state: ReduxState) => {
-  const { data, filteredData, message, error, loading } = state.dataReducers
-  return { data, filteredData, message, error, loading }
+  // const { data, filteredData, message, error } = state.dataReducers
+  const { data, filteredData } = state.dataReducers
+  return { data, filteredData }
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => 
@@ -27,7 +29,7 @@ type Props = ReturnType<typeof mapStateToProps> &
 ReturnType<typeof mapDispatchToProps>
 
 
-class TableContainer extends React.Component<Props, TableContainerState>{
+export class TableContainer extends React.Component<Props, TableContainerState> {
   constructor(props:Props) {
     super(props);
     this.state = { 
@@ -36,7 +38,7 @@ class TableContainer extends React.Component<Props, TableContainerState>{
   };
 
   componentDidMount(){
-    this.props.getData()
+    this.props.getData(`/api/restaurants`)
   }
   
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,8 +60,12 @@ class TableContainer extends React.Component<Props, TableContainerState>{
     this.props.filterByGenre(e.target.value)
   }
 
+  paginationHandler = () => {
+
+  }
+
   render(){
-    // const { data, filteredData, message, error, loading } = this.props;
+    // const { data, filteredData, message } = this.props;
     const { data, filteredData } = this.props;
     const { value } = this.state;
     const filterStates = data.map(location => location.state);
