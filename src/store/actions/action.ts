@@ -29,3 +29,10 @@ export const filterByGenre = (value: string) => ({
   type: actionTypes.FILTER_BY_GENRE,
   payload: value
 });
+
+
+
+export const filterByAttire = (value: string) => ({
+  type: actionTypes.FILTER_BY_ATTIRE,
+  payload: value
+});

@@ -13,6 +13,10 @@ interface IData {
     filteredData: dataObject[],
     message: string,
     error: boolean,
+    search: string,
+    stateSelectedTest: string,
+    genre: string,
+    attire: string
 }
 
 interface dataObject {

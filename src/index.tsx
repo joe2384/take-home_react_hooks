@@ -7,9 +7,19 @@ import store from './store/store';
 
 const rootElement = document.getElementById('root')
 
+const Style: any = {
+  wrapper:{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    },
+};
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <div style={Style.wrapper}>
+      <App />
+    </div>
   </Provider>,
   rootElement
 )
