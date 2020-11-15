@@ -5,26 +5,21 @@ const instance = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    'Authorization': `Api-Key ${settings.api_key}`  }
+    Authorization: `Api-Key ${settings.api_key}`,
+  },
 });
 
 export default function restCall(params) {
-  const {
-    url,
-    method,
-    successType,
-    errorType,
-    dispatch
-  } = params;
+  const { url, method, successType, errorType, dispatch } = params;
   const axVars = {
     url: `${settings.restEngine}${url}`,
-    method
+    method,
   };
   return instance(axVars)
-  .then(resp => {
-    dispatch({ type: successType, payload: resp.data })
-  })
-  .catch(error => {
-    dispatch({ type: errorType, message: 'Error: No restaurants to return' })
-  })
+    .then((resp) => {
+      dispatch({ type: successType, payload: resp.data });
+    })
+    .catch((error) => {
+      dispatch({ type: errorType, message: 'Error: No restaurants to return' });
+    });
 }

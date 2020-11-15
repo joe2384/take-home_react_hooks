@@ -1,37 +1,37 @@
 interface ReduxAction {
-    type: string;
-    payload?: any;
-    message?: string
-} 
+  type: string;
+  payload?: any;
+  message?: string;
+}
 
 interface ReduxState {
-    dataReducers: IData;
+  dataReducers: IData;
 }
 
 interface IData {
-    data: dataObject[],
-    filteredData: dataObject[],
-    message: string,
-    error: boolean,
-    search: string,
-    stateSelectedTest: string,
-    genre: string,
-    attire: string
+  data: dataObject[];
+  filteredData: dataObject[];
+  message: string;
+  error: boolean;
+  search: string;
+  stateSelectedTest: string;
+  genre: string;
+  attire: string;
 }
 
 interface dataObject {
-    address1: string,
-    attire: string,
-    city: string,
-    genre: string,
-    hours: string,
-    id: string,
-    lat: string,
-    long: string,
-    name: string,
-    state: string,
-    tags: string,
-    telephone: string,
-    website: string,
-    zip: string,
+  address1: string;
+  attire: string;
+  city: string;
+  genre: string;
+  hours: string;
+  id: string;
+  lat: string;
+  long: string;
+  name: string;
+  state: string;
+  tags: string;
+  telephone: string;
+  website: string;
+  zip: string;
 }

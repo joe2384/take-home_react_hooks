@@ -4,18 +4,18 @@ import '../styles/App.css';
 
 const App: React.FC = () => {
   const Style: any = {
-    wrapper:{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '90%',
-      },
-  }; 
+    wrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      width: '90%',
+    },
+  };
   return (
     <div style={Style.wrapper}>
-      <TableContainer/>
+      <TableContainer />
     </div>
   );
-}
+};
 
 export default App;
