@@ -11,10 +11,12 @@ const Table: React.FC<Props> = ({ headers, filteredData }): JSX.Element => {
       fontFamily: 'Arial, Helvetica, sans-serif',
       borderCollapse: 'collapse',
       width: ' 100%',
+      border: '1px solid rgb(51, 62, 235)',
     },
     HeadTr: {
       backgroundColor: '#f2f2f2',
       height: '40px',
+      borderBottom: '1px solid rgb(51, 62, 235)',
     },
     td: {
       padding: '15px',
