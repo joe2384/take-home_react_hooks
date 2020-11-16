@@ -6,6 +6,7 @@ interface DropDownProps {
   value: string;
   data: string[];
   handleSelected: Function;
+  search: string;
 }
 
 const DropDown: React.FC<DropDownProps> = ({
@@ -13,6 +14,7 @@ const DropDown: React.FC<DropDownProps> = ({
   data,
   filterType,
   handleSelected,
+  search,
 }) => {
   const Style: any = {
     select: {
@@ -27,6 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({
   return (
     <Fragment>
       {filterType}
+      {/* {value !== 'all' && search && ( */}
       {value !== 'all' && (
         <FaWindowClose style={Style.fa} onClick={() => handleSelected('all')} />
       )}

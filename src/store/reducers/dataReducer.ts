@@ -92,8 +92,9 @@ function allFilter(data: dataObject[], value: string, type: string) {
       type === 'attire' ? value : attire
     );
   }
+
   if (type === 'search' || search !== '') {
-    newData = filterBySearch(newData, value);
+    newData = filterBySearch(newData, type === 'search' ? value : search);
   }
 
   newData = newData.sort((a, b) => a.name.localeCompare(b.name));

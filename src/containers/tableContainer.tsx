@@ -23,6 +23,7 @@ const mapStateToProps = (state: ReduxState) => {
     data,
     filteredData,
     error,
+    search,
     stateSelectedTest,
     genre,
     attire,
@@ -31,6 +32,7 @@ const mapStateToProps = (state: ReduxState) => {
     data,
     filteredData,
     error,
+    search,
     stateSelectedTest,
     genre,
     attire,
@@ -120,6 +122,7 @@ export class TableContainer extends React.Component<
       data,
       filteredData,
       error,
+      search,
       stateSelectedTest,
       genre,
       attire,
@@ -132,6 +135,7 @@ export class TableContainer extends React.Component<
       <Fragment>
         <form style={Style.form} onSubmit={(e) => this.handleSubmit(e)}>
           <DropDown
+            search={search}
             value={stateSelectedTest}
             data={filterStates}
             filterType={'State'}
@@ -139,6 +143,7 @@ export class TableContainer extends React.Component<
           />
 
           <DropDown
+            search={search}
             value={genre}
             data={filterGenre}
             filterType={'Genre'}
@@ -146,6 +151,7 @@ export class TableContainer extends React.Component<
           />
 
           <DropDown
+            search={search}
             value={attire}
             data={filterAttire}
             filterType={'Attire'}
