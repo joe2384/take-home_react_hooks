@@ -29,8 +29,7 @@ const DropDown: React.FC<DropDownProps> = ({
   return (
     <Fragment>
       {filterType}
-      {/* {value !== 'all' && search && ( */}
-      {value !== 'all' && (
+      {value !== 'all' && search && (
         <FaWindowClose style={Style.fa} onClick={() => handleSelected('all')} />
       )}
       <select
