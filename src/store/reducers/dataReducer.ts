@@ -42,7 +42,6 @@ export default (state = initialState, action: ReduxAction) => {
     case actionTypes.FILTER_BY_STATE:
       stateSelected = action.payload;
       filtered = allFilter(state.data, action.payload, 'state');
-      console.log('action.payload', action.payload);
       return {
         ...state,
         stateSelectedTest: action.payload,
@@ -97,7 +96,7 @@ function allFilter(data: dataObject[], value: string, type: string) {
     newData = filterBySearch(newData, value);
   }
 
-  newData = newData.sort((a, b) => a.city.localeCompare(b.city));
+  newData = newData.sort((a, b) => a.name.localeCompare(b.name));
 
   return Array.from({ length: Math.ceil(newData.length / 10) }, () =>
     newData.splice(0, 10)

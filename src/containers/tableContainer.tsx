@@ -84,27 +84,17 @@ export class TableContainer extends React.Component<
 
   handleStateSelected = (e: React.ChangeEvent<HTMLSelectElement> | any) => {
     this.props.filterByState(e);
-    this.setState({
-      pageNumber: 0,
-    });
   };
 
   handleGenreSelected = (e: React.ChangeEvent<HTMLSelectElement> | any) => {
     this.props.filterByGenre(e);
-    this.setState({
-      pageNumber: 0,
-    });
   };
 
   handleAttireSelected = (e: React.ChangeEvent<HTMLSelectElement> | any) => {
     this.props.filterByAttire(e);
-    this.setState({
-      pageNumber: 0,
-    });
   };
 
   paginationHandler = (pageNumber: any) => {
-    console.log('pageNumber = ', pageNumber);
     this.setState({
       pageNumber: pageNumber.selected,
     });
@@ -166,24 +156,22 @@ export class TableContainer extends React.Component<
             type="text"
             value={value}
             onChange={(e) => this.handleChange(e)}
-            placeholder="Search State and Genre"
+            placeholder="Search Name, City, or Genre"
           />
 
           <button type="submit" value="Submit">
             Search
           </button>
         </form>
-        {filteredData[pageNumber] && !error ? (
+        {filteredData[0] || (filteredData[pageNumber] && !error) ? (
           <Table
-            headers={[
-              'Name',
-              'City',
-              'State',
-              'Phone number',
-              'Genres',
-              'Attire',
-            ]}
-            filteredData={filteredData[pageNumber]}
+            rows={['Name', 'City', 'State', 'Phone number', 'Genres', 'Attire']}
+            columns={['name', 'city', 'state', 'telephone', 'genre', 'attire']}
+            filteredData={
+              filteredData[pageNumber] === undefined
+                ? filteredData[0]
+                : filteredData[pageNumber]
+            }
           />
         ) : (
           <div>No restaurants</div>
