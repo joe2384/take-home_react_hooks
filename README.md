@@ -5,9 +5,20 @@
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
-
 ![](header.png)
+
+## Project features
+
+* A user can see a table with the name, city, state, phone number, and genres for each restaurant.
+* A can see results sorted by name in alphabetical order starting with the beginning of the alphabet.
+* ​A user can filter restaurants by state. If a state is selected that does not contain any restaurants, there should be something that indicates no restaurants were found for that state. 
+* ​A user can to filter by genre.  
+* State and Genre filters default to “All” and take effect instantaneously (no additional clicks). 
+* A user can enter text into a search field. When hitting the enter key or clicking on a search button, the table should search results. Search results should match either the name, city, or genre.
+* A user can to clear the search by clearing the text value in the search input.
+* A user can only see 10 results at a time and the table should be paginated.
+* A user can combine filters and search. The user can turn filters on and off
+  while a search value is present.
 
 ## Installation
 
