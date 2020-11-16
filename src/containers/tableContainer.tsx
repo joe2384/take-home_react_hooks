@@ -10,10 +10,8 @@ import {
 } from '../store/actions/action';
 import Table from '../components/table';
 import DropDown from '../components/dropDown';
-import ReactPaginate from 'react-paginate';
+import Pagination from '../components/pagination';
 import '../styles/App.css';
-
-import { FaWindowClose } from 'react-icons/fa';
 
 interface TableContainerState {
   value: string;
@@ -25,7 +23,6 @@ const mapStateToProps = (state: ReduxState) => {
     data,
     filteredData,
     error,
-    search,
     stateSelectedTest,
     genre,
     attire,
@@ -34,7 +31,6 @@ const mapStateToProps = (state: ReduxState) => {
     data,
     filteredData,
     error,
-    search,
     stateSelectedTest,
     genre,
     attire,
@@ -108,6 +104,7 @@ export class TableContainer extends React.Component<
   };
 
   paginationHandler = (pageNumber: any) => {
+    console.log('pageNumber = ', pageNumber);
     this.setState({
       pageNumber: pageNumber.selected,
     });
@@ -133,7 +130,6 @@ export class TableContainer extends React.Component<
       data,
       filteredData,
       error,
-      search,
       stateSelectedTest,
       genre,
       attire,
@@ -145,31 +141,24 @@ export class TableContainer extends React.Component<
     return (
       <Fragment>
         <form style={Style.form} onSubmit={(e) => this.handleSubmit(e)}>
-          State{' '}
-          {stateSelectedTest !== 'all' && (
-            <FaWindowClose onClick={() => this.handleStateSelected('all')} />
-          )}
           <DropDown
             value={stateSelectedTest}
             data={filterStates}
+            filterType={'State'}
             handleSelected={this.handleStateSelected}
           />
-          Genres{' '}
-          {genre !== 'all' && (
-            <FaWindowClose onClick={() => this.handleGenreSelected('all')} />
-          )}
+
           <DropDown
             value={genre}
             data={filterGenre}
+            filterType={'Genre'}
             handleSelected={this.handleGenreSelected}
           />
-          Attire{' '}
-          {attire !== 'all' && (
-            <FaWindowClose onClick={() => this.handleAttireSelected('all')} />
-          )}
+
           <DropDown
             value={attire}
             data={filterAttire}
+            filterType={'Attire'}
             handleSelected={this.handleAttireSelected}
           />
           <input
@@ -179,11 +168,12 @@ export class TableContainer extends React.Component<
             onChange={(e) => this.handleChange(e)}
             placeholder="Search State and Genre"
           />
+
           <button type="submit" value="Submit">
             Search
           </button>
         </form>
-        {filteredData[pageNumber] ? (
+        {filteredData[pageNumber] && !error ? (
           <Table
             headers={[
               'Name',
@@ -198,21 +188,9 @@ export class TableContainer extends React.Component<
         ) : (
           <div>No restaurants</div>
         )}
-
-        <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          breakClassName={'break-me'}
+        <Pagination
+          paginationHandler={this.paginationHandler}
           pageCount={filteredData.length}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={this.paginationHandler}
-          containerClassName={'paginationContainer'}
-          pageClassName={'pageClassName'}
-          activeClassName={'active'}
-          previousClassName={'previous'}
-          nextClassName={'next'}
         />
       </Fragment>
     );

@@ -3,16 +3,8 @@ import TableContainer from './tableContainer';
 import '../styles/App.css';
 
 const App: React.FC = () => {
-  const Style: any = {
-    wrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '90%',
-    },
-  };
   return (
-    <div style={Style.wrapper}>
+    <div className="wrapper">
       <TableContainer />
     </div>
   );
