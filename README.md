@@ -20,10 +20,6 @@
 * A user can combine filters and search. The user can turn filters on and off
   while a search value is present.
 
-## Demo
-
-(<https://github.com/yourname/yourproject/fork>)
-
 ## Installation
 
 ```sh
