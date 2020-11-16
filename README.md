@@ -22,16 +22,20 @@
 
 ## Installation
 
-OS X & Linux:
-
 ```sh
-npm install my-crazy-module --save
+npm install
 ```
 
-Windows:
+## To run project
 
 ```sh
-edit autoexec.bat
+npm start
+```
+
+## To run test (Note, test only covers api request)
+
+```sh
+npm test
 ```
 
 ## Usage example
