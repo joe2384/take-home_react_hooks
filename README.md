@@ -1,12 +1,6 @@
 # Charter Take-Home
 > This take-home is an app to filter restaurants by state, genre, and attire. The app also uses an input field to search restaurants by name, city, and genre. The app has pagination to help keep table rows to no more than ten listings. This app features React, Typescript, Redux, Enzyme, and Jest.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
-![](header.png)
-
 ## Project features
 
 * A user can see a table with the name, city, state, phone number, and genres for each restaurant.
