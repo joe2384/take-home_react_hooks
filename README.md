@@ -14,6 +14,10 @@
 * A user can combine filters and search. The user can turn filters on and off
   while a search value is present.
 
+## Demo
+
+<http://charter_take-home.surge.sh/>
+
 ## Installation
 
 ```sh
@@ -31,6 +35,4 @@ npm start
 ```sh
 npm test
 ```
-
-
 
