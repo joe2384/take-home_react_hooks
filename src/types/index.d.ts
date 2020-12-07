@@ -35,3 +35,19 @@ interface dataObject {
   website: string;
   zip: string;
 }
+
+interface TableContainerProps {
+  getData: Function;
+  filterByValue: Function;
+  filterByState: Function;
+  filterByGenre: Function;
+  filterByAttire: Function;
+  data: dataObject[];
+  filteredData: dataObject[];
+  message: string;
+  error: boolean;
+  search: string;
+  stateSelectedTest: string;
+  genre: string;
+  attire: string;
+}
